@@ -16,7 +16,11 @@ var FileNotFoundError = require("../lib/errors");
 
 app = express();
 
-// GET请求,路径中没有.的情况: 渲染页面
+/* 请求路径中没有.的情况: 
+    页面请求: urlData 为空, 根据路径找到 hbs后, 渲染页面
+      组件绑定的服务, 都是在 inject helper 时被调用. 即在渲染的过程中实现
+    ajax请求: urlData 不为空, 找不到 hbs 抛出异常, 进入 next(), 直接返回 urlData
+*/
 app.get(/^([^\.]+)$/, function(req, res, next) {
   var path = req.params[0];
   var urlData = dataProvider.getUrlData(path, req.query);
@@ -36,7 +40,7 @@ app.get(/^([^\.]+)$/, function(req, res, next) {
   }
 });
 
-// GET请求,路径中有.的情况: 发送文件
+// 请求路径中有.的情况: 发送路径下的文件
 app.get(/^(.+)$/, function(req, res, next) {
   var path = req.params[0];
   if (env.assetsPrefix !== void 0 && path.startsWith(env.assetsPrefix)) {
@@ -50,7 +54,7 @@ app.get(/^(.+)$/, function(req, res, next) {
   }
 });
 
-// 所有请求类型,路径中有.的情况
+// 请求路径中有.的情况
 app.all(/^(.+)$/, function(req, res) {
   var path = req.params[0];
   var dataResult = dataProvider.getUrlData(path, req.method, req.query);

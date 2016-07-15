@@ -1,10 +1,7 @@
 {
   "name": "zeta-renderer",
   "description": "renderer~",
-  "author": {
-    "name": "奧莉",
-    "email": "yangwc@dtdream.com"
-  },
+  "author": "奧莉 <yangwc@dtdream.com>",
   "version": "0.0.2",
   "keywords": [
     "zeta",
@@ -23,17 +20,22 @@
   "bin": {
     "renderer": "./bin/renderer"
   },
-  "scripts": {
-    "test": "cd test && linner build && renderer"
-  },
   "main": "index.js",
   "directories": {
     "test": "test"
   },
-  "devDependencies": {},
   "license": "ISC",
-  "readme": "ERROR: No README data found!",
-  "_id": "zeta-renderer@0.0.2",
   "_shasum": "f4bf3d93b50266b3720d69d0647ff505fe6f270a",
-  "_from": "zeta-renderer@*"
+  "_from": "zeta-renderer@*",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/talltotal/zeta-renderer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/talltotal/zeta-renderer/issues"
+  },
+  "homepage": "https://github.com/talltotal/zeta-renderer",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
 }
