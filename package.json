@@ -1,0 +1,39 @@
+{
+  "name": "zeta-renderer",
+  "description": "renderer~",
+  "author": {
+    "name": "奧莉",
+    "email": "yangwc@dtdream.com"
+  },
+  "version": "0.0.2",
+  "keywords": [
+    "zeta",
+    "renderer"
+  ],
+  "dependencies": {
+    "express": "~4",
+    "handlebars": "4.0.4",
+    "lodash": "~2.4.1",
+    "async": "~0.2.9",
+    "tracer": "~0.6.1",
+    "redis": "~0.10.0",
+    "node-watch": "~0.3.4",
+    "commander": "~2.5.0"
+  },
+  "bin": {
+    "renderer": "./bin/renderer"
+  },
+  "scripts": {
+    "test": "cd test && linner build && renderer"
+  },
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {},
+  "license": "ISC",
+  "readme": "ERROR: No README data found!",
+  "_id": "zeta-renderer@0.0.2",
+  "_shasum": "f4bf3d93b50266b3720d69d0647ff505fe6f270a",
+  "_from": "zeta-renderer@*"
+}
