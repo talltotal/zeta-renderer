@@ -1,72 +1,34 @@
 #!/usr/bin/env node
-
-require("../lib/polyfill");
-
+var commander = require("commander");
 var _ = require("lodash");
-var fs = require("fs");
-var express = require("express");
 
-// 初始化配置
-var env = require("../lib/enviroments");
-// 初始化渲染环境
-var render = require("../lib/handlebars/render");
-var dataProvider = require("../lib/data_provider");
-var FileNotFoundError = require("../lib/errors");
+var renderer = require("../lib/index");
 
+var env = process.env.NODE_ENV || "dev";
 
-app = express();
+var configFilePath = "renderer.json";
+var port = 8080;
 
-/* 请求路径中没有.的情况: 
-    页面请求: urlData 为空, 根据路径找到 hbs后, 渲染页面
-      组件绑定的服务, 都是在 inject helper 时被调用. 即在渲染的过程中实现
-    ajax请求: urlData 不为空, 找不到 hbs 抛出异常, 进入 next(), 直接返回 urlData
-*/
-app.get(/^([^\.]+)$/, function(req, res, next) {
-  var path = req.params[0];
-  var urlData = dataProvider.getUrlData(path, req.query);
-  var globalData = dataProvider.getGlobalData();
-  var context = _.isPlainObject(urlData.result) ? _.assign(req.query, urlData.result) : req.query;
-  context = _.assign(globalData, context);
-  try {
-    var result = render.renderFile(path, context);
-    res.send(result);
-  } catch (_error) {
-    var err = _error;
-    if (err instanceof FileNotFoundError) {
-      next();
-    } else {
-      throw err;
+if (env !== "test") {
+  commander.version("renderer version: 0.0.4").usage("[options] [file], file default: renderer.json").option("-p, --port [port]", "Use the specified port, will override port config in config.json.");
+  commander.on("--help", function() {
+    console.log("  Examples:");
+    console.log("");
+    console.log("    $ renderer");
+    console.log("    $ renderer config.json");
+    return console.log("    $ renderer -p 8000");
+  });
+  commander.parse(process.argv);
+  if (!_.isEmpty(commander.args)) {
+    configFilePath = commander.args[0];
+  }
+  if (commander.port !== void 0) {
+    port = parseInt(commander.port);
+    if (_.isNaN(port)) {
+      commander.help();
     }
   }
-});
+}
 
-// 请求路径中有.的情况: 发送路径下的文件
-app.get(/^(.+)$/, function(req, res, next) {
-  var path = req.params[0];
-  if (env.assetsPrefix !== void 0 && path.startsWith(env.assetsPrefix)) {
-    path = path.substring(env.assetsPrefix.length);
-  }
-  var realPath = "" + env.filesHome + path;
-  if (fs.existsSync(realPath)) {
-    res.sendFile(realPath);
-  } else {
-    next();
-  }
-});
+renderer({port:port,configFilePath:configFilePath});
 
-// 请求路径中有.的情况
-app.all(/^(.+)$/, function(req, res) {
-  var path = req.params[0];
-  var dataResult = dataProvider.getUrlData(path, req.method, req.query);
-  if (dataResult.found) {
-    res.send(dataResult.result);
-  } else {
-    console.log("[Not Found] " + path);
-    res.status(404);
-    res.send();
-  }
-});
-
-app.listen(env.serverPort);
-
-console.log("server listening at port: " + env.serverPort);

@@ -2,7 +2,7 @@
   "name": "zeta-renderer",
   "description": "renderer~",
   "author": "奧莉 <yangwc@dtdream.com>",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "keywords": [
     "zeta",
     "renderer"
@@ -20,7 +20,7 @@
   "bin": {
     "renderer": "./bin/renderer"
   },
-  "main": "index.js",
+  "main": "./lib/index.js",
   "directories": {
     "test": "test"
   },
