@@ -16,7 +16,7 @@ if (env !== "test") {
     console.log("");
     console.log("    $ renderer");
     console.log("    $ renderer config.json");
-    return console.log("    $ renderer -p 8000");
+    console.log("    $ renderer -p 8000");
   });
   commander.parse(process.argv);
   if (!_.isEmpty(commander.args)) {
