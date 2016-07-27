@@ -10,7 +10,7 @@ $ npm install -g zeta-renderer
 
 在编译后的工程根目录下执行:
 ```
-$ renderer
+$ renderer -p 8083 my_config.json
 ```
 
 在package.json的*dependencies*中增加*"zeta-renderer": "0.0.4"*
