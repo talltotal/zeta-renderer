@@ -1,4 +1,4 @@
-# zeta-renderer@0.0.6
+# zeta-renderer@0.0.7
 
 ## 安装
 
@@ -13,7 +13,7 @@ $ npm install -g zeta-renderer
 $ renderer -p 8083 my_config.json
 ```
 
-在package.json的*dependencies*中增加*"zeta-renderer": "0.0.4"*
+在package.json的*dependencies*中增加*"zeta-renderer": "0.0.7"*
 ```
 var renderer = require("zeta-renderer");
 
