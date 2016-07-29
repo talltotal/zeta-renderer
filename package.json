@@ -2,20 +2,21 @@
   "name": "zeta-renderer",
   "description": "renderer~",
   "author": "奧莉 <yangwc@dtdream.com>",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "keywords": [
     "zeta",
     "renderer"
   ],
   "dependencies": {
+    "async": "~0.2.9",
+    "body-parser": "^1.15.2",
+    "commander": "~2.5.0",
     "express": "~4",
     "handlebars": "4.0.4",
     "lodash": "~2.4.1",
-    "async": "~0.2.9",
-    "tracer": "~0.6.1",
-    "redis": "~0.10.0",
     "node-watch": "~0.3.4",
-    "commander": "~2.5.0"
+    "redis": "~0.10.0",
+    "tracer": "~0.6.1"
   },
   "bin": {
     "renderer": "./bin/renderer"

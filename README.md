@@ -1,4 +1,4 @@
-# zeta-renderer@0.0.4
+# zeta-renderer@0.0.6
 
 ## 安装
 
