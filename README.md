@@ -1,4 +1,4 @@
-# zeta-renderer@0.0.8
+# zeta-renderer@0.0.9
 
 ## 安装
 
@@ -26,5 +26,6 @@ renderer.config; //返回配置
 3. dataFiles: 数据文件路径 [];
 4. extraHelpers: 自定义help文件路径 [];
 5. assetsPrefix: filesHome目录下的文件路径 void 0;
-6. configFilePath: 根目录下配置文件 "renderer.json".
+6. user: 用户数据，用于注入_USER_ void 0;
+7. configFilePath: 根目录下配置文件 "renderer.json".
 > configFilePath下文件的配置内容将覆盖其他配置。
