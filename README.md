@@ -27,5 +27,8 @@ renderer.config; //返回配置
 4. extraHelpers: 自定义help文件路径 [];
 5. assetsPrefix: filesHome目录下的文件路径 void 0;
 6. user: 用户数据，用于注入_USER_ void 0;
-7. configFilePath: 根目录下配置文件 "renderer.json".
-> configFilePath下文件的配置内容将覆盖其他配置。
+7. configFilePath: 根目录下配置文件 "renderer.json";
+8. indexView: 默认的页面view "index".
+
+## 配置内容优先级
+默认配置 < 调用参数/命令行 < 配置文件
