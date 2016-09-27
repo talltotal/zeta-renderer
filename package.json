@@ -2,7 +2,7 @@
   "name": "zeta-renderer",
   "description": "renderer~",
   "author": "奧莉 <yangwc@dtdream.com>",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "keywords": [
     "zeta",
     "renderer"
@@ -18,7 +18,8 @@
     "node-watch": "~0.3.4",
     "redis": "~0.10.0",
     "tracer": "~0.6.1",
-    "js-yaml": "^3.6.1"
+    "js-yaml": "^3.6.1",
+    "markdown": "^0.5.0"
   },
   "bin": {
     "renderer": "./bin/renderer"

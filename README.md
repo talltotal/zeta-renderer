@@ -32,3 +32,21 @@ renderer.config; //返回配置
 
 ## 配置内容优先级
 默认配置 < 调用参数/命令行 < 配置文件
+
+## helper
+
+1. `ifCond` 
+2. `size` 返回数组的大小
+3. `json` 将对象以`json`格式返回
+4. `mod` 是否整除
+5. `neither` 两个非
+6. `and` 两个是
+7. `gt` 大于
+8. `equals` 相等
+9. `add` 两个数字相加
+10. `of` 参数一在数组二中
+11. `formatDate` 将`long`格式的时间以`YYYY-MM-DD HH:mm:ss`格式返回
+12. `formatPrice` 将分为单位的金额以`xx.xx`格式返回
+13. `assign` 在上下文定义一个变量
+14. `markdown` 引入.md文件
+15. `inject` 引入.hbs文件
