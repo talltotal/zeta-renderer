@@ -2,7 +2,7 @@
   "name": "zeta-renderer",
   "description": "renderer~",
   "author": "奧莉 <yangwc@dtdream.com>",
-  "version": "0.0.24",
+  "version": "0.0.26",
   "keywords": [
     "zeta",
     "renderer"
@@ -26,12 +26,7 @@
     "renderer": "./bin/renderer"
   },
   "main": "./lib/index.js",
-  "directories": {
-    "test": "test"
-  },
   "license": "ISC",
-  "_shasum": "f4bf3d93b50266b3720d69d0647ff505fe6f270a",
-  "_from": "zeta-renderer@*",
   "repository": {
     "type": "git",
     "url": "https://github.com/talltotal/zeta-renderer.git"
