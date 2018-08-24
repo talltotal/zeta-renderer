@@ -1,9 +1,18 @@
-﻿{
+{
   "name": "zeta-renderer",
   "description": "renderer~",
   "author": "奧莉 <yangwc@dtdream.com>",
-  "version": "0.0.28",
+  "version": "0.1.0",
+  "main": "./lib/index.js",
+  "scripts": {
+    "start": "node ./lib/index.js",
+    "test": "node ./lib/index.js",
+    "lint": "eslint --ext .js lib bin",
+    "lint:fix": "npm run lint -- --fix"
+  },
   "keywords": [
+    "handlebars",
+    "SSR",
     "zeta",
     "renderer"
   ],
@@ -25,7 +34,6 @@
   "bin": {
     "renderer": "./bin/renderer"
   },
-  "main": "./lib/index.js",
   "license": "ISC",
   "repository": {
     "type": "git",
@@ -35,7 +43,12 @@
     "url": "https://github.com/talltotal/zeta-renderer/issues"
   },
   "homepage": "https://github.com/talltotal/zeta-renderer",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "devDependencies": {
+    "eslint": "^5.4.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-promise": "^4.0.0",
+    "eslint-plugin-standard": "^3.1.0"
   }
 }
