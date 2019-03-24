@@ -2,24 +2,26 @@
 
 ## 安装
 
-```
+```bash
 $ npm install -g zeta-renderer
 ```
 
 ## 使用
 
 在编译后的工程根目录下执行:
-```
+```bash
 $ renderer -p 8083 my_config.json
 ```
 
 在package.json的*dependencies*中增加*"zeta-renderer": "latest"*
-```
+
+```js
 var renderer = require("zeta-renderer");
 
-renderer({port:8083, configFilePath:"my_config.json"});
+renderer({ port:8083, configFilePath:"my_config.json" });
 renderer.config; //返回配置
 ```
+
 其中的选项:
 1. port: 端口号 8080;
 2. filesHome: 编译后的文件夹名 "public";
@@ -50,3 +52,11 @@ renderer.config; //返回配置
 13. `assign` 在上下文定义一个变量
 14. `markdown` 引入.md文件
 15. `inject` 引入.hbs文件
+
+
+## todo list
+
+* 检测端口占用，自动匹配
+* 限制访问ip
+* 完全替换vision方案
+* 接口代理

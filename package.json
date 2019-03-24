@@ -3,9 +3,12 @@
   "description": "renderer~",
   "author": "奧莉 <yangwc@dtdream.com>",
   "version": "0.1.0",
+  "bin": {
+    "renderer": "./bin/renderer"
+  },
   "main": "./lib/index.js",
   "scripts": {
-    "start": "node ./lib/index.js",
+    "start": "node ./bin/renderer",
     "test": "node ./lib/index.js",
     "lint": "eslint --ext .js lib bin",
     "lint:fix": "npm run lint -- --fix"
@@ -30,9 +33,6 @@
     "js-yaml": "^3.6.1",
     "markdown-it": "8.0.0",
     "highlight.js": "^9.7.0"
-  },
-  "bin": {
-    "renderer": "./bin/renderer"
   },
   "license": "ISC",
   "repository": {
